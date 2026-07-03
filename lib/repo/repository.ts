@@ -32,7 +32,9 @@ export interface RepoStats {
 /**
  * The single data contract every feature talks to. Two implementations exist:
  * `LocalRepository` (file-backed JSON, default) and `SupabaseRepository`.
- * Selecting between them is env-driven — see `lib/repo/index.ts`.
+ * Selection is env-driven — see `lib/repo/index.ts`. Both implementations map to
+ * the same domain types, so the schema's snake_case columns and the reserved-safe
+ * `refs` column never leak past this boundary.
  */
 export interface Repository {
   // ---- Articles ----
@@ -71,5 +73,6 @@ export interface Repository {
   addNotifications(notifications: AppNotification[]): Promise<void>;
   markNotificationRead(userId: string, id: string): Promise<void>;
 
+  // ---- Meta ----
   stats(): Promise<RepoStats>;
 }
