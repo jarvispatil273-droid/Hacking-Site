@@ -1,0 +1,34 @@
+[
+  {
+    "id": "proj-aegis-aggregator",
+    "name": "AEGIS News Aggregator",
+    "tagline": "Hourly RSS ingestion with AI summaries, dedup, and categorization.",
+    "tags": ["Next.js", "OpenAI", "RSS", "Supabase"],
+    "status": "live",
+    "href": "/news"
+  },
+  {
+    "id": "proj-cve-explorer",
+    "name": "CVE Explorer",
+    "tagline": "Live NVD 2.0 search with CVSS scoring and severity triage.",
+    "tags": ["NVD API", "CVSS", "Triage"],
+    "status": "live",
+    "href": "/cve"
+  },
+  {
+    "id": "proj-threat-search",
+    "name": "Unified Threat Search",
+    "tagline": "Full-text search across news and vulnerabilities with a ⌘K palette.",
+    "tags": ["Search", "UX", "Full-text"],
+    "status": "live",
+    "href": "/search"
+  },
+  {
+    "id": "proj-ctf-arena",
+    "name": "CTF Arena",
+    "tagline": "Jeopardy-style challenges with scoring and write-ups.",
+    "tags": ["CTF", "Education"],
+    "status": "planned",
+    "href": "/ctf"
+  }
+]

@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   THEME TOKENS
+   Channels are space-separated RGB so Tailwind's `rgb(var(--x) / <alpha>)`
+   opacity modifiers work. Default (:root) is the "Matrix Green" theme; other
+   themes override only what changes via [data-theme="..."].
+   ========================================================================== */
+:root {
+  --font-mono: "JetBrains Mono", "Cascadia Code", "SF Mono", "Fira Code",
+    ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --bg: 6 10 8;
+  --surface: 11 17 14;
+  --surface-2: 16 24 20;
+  --border: 34 54 44;
+  --muted: 122 140 130;
+  --fg: 222 244 232;
+
+  --neon: 0 255 128;
+  --neon-2: 16 200 120;
+
+  --danger: 244 63 94;
+  --warn: 245 158 11;
+  --ok: 34 197 94;
+}
+
+[data-theme="cyber"] {
+  --bg: 6 9 16;
+  --surface: 11 16 26;
+  --surface-2: 16 23 38;
+  --border: 34 48 74;
+  --muted: 124 138 168;
+  --fg: 224 234 248;
+
+  --neon: 34 211 238;
+  --neon-2: 59 130 246;
+}
+
+[data-theme="neon"] {
+  --bg: 12 8 18;
+  --surface: 18 13 27;
+  --surface-2: 26 18 38;
+  --border: 58 40 82;
+  --muted: 150 132 172;
+  --fg: 238 230 250;
+
+  --neon: 168 85 247;
+  --neon-2: 217 70 239;
+}
+
+[data-theme="blood"] {
+  --bg: 14 7 9;
+  --surface: 22 12 14;
+  --surface-2: 32 17 20;
+  --border: 74 36 42;
+  --muted: 168 130 134;
+  --fg: 250 228 230;
+
+  --neon: 244 63 94;
+  --neon-2: 239 68 68;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--fg));
+    font-family: var(--font-mono), ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--neon) / 0.3);
+    color: rgb(var(--fg));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--neon) / 0.5);
+  }
+}
+
+/* ==========================================================================
+   COMPONENT UTILITIES
+   ========================================================================== */
+@layer components {
+  .card {
+    @apply rounded-xl border border-border bg-surface/70 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-neon/60 hover:shadow-neon;
+  }
+
+  .neon-text {
+    color: rgb(var(--neon));
+    text-shadow: 0 0 8px rgb(var(--neon) / 0.55);
+  }
+
+  .neon-ring {
+    box-shadow:
+      0 0 0 1px rgb(var(--neon) / 0.4),
+      0 0 18px rgb(var(--neon) / 0.25);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-border bg-surface-2/60 px-2.5 py-0.5 text-xs text-muted;
+  }
+
+  /* Faint animated grid backdrop */
+  .grid-bg {
+    background-image: var(--tw-bg-grid, none);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+  }
+
+  /* CRT scanline overlay */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgb(var(--neon) / 0.04) 0px,
+      rgb(var(--neon) / 0.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .terminal-prompt::before {
+    content: "$ ";
+    color: rgb(var(--neon));
+  }
+}
+
+@layer utilities {
+  .bg-grid-overlay {
+    --tw-bg-grid: linear-gradient(
+        rgb(var(--border) / 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgb(var(--border) / 0.5) 1px, transparent 1px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Respect reduced-motion: kill decorative animations globally. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography plugin overrides for our dark neon theme (blog/detail prose). */
+.prose-cyber {
+  --tw-prose-body: rgb(var(--fg) / 0.9);
+  --tw-prose-headings: rgb(var(--fg));
+  --tw-prose-links: rgb(var(--neon));
+  --tw-prose-bold: rgb(var(--fg));
+  --tw-prose-bullets: rgb(var(--neon) / 0.6);
+  --tw-prose-quotes: rgb(var(--muted));
+  --tw-prose-quote-borders: rgb(var(--neon) / 0.5);
+  --tw-prose-code: rgb(var(--neon));
+  --tw-prose-hr: rgb(var(--border));
+}

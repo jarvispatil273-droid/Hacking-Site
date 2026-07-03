@@ -1,0 +1,92 @@
+import type { Source } from "@/types";
+
+/**
+ * Curated, reputable, PUBLIC cybersecurity RSS feeds. All content is summarized
+ * + attributed + linked back — never republished. `category` is only a hint; the
+ * AI categorizer may override per-article.
+ *
+ * This is the canonical default list. It also seeds `data/seed/sources.json`; the
+ * pipeline upserts any missing entries into the active repository on first run.
+ */
+export const DEFAULT_SOURCES: Source[] = [
+  {
+    id: "the-hacker-news",
+    name: "The Hacker News",
+    url: "https://thehackernews.com",
+    feedUrl: "https://feeds.feedburner.com/TheHackersNews",
+    category: "Threats",
+    enabled: true,
+  },
+  {
+    id: "bleeping-computer",
+    name: "BleepingComputer",
+    url: "https://www.bleepingcomputer.com",
+    feedUrl: "https://www.bleepingcomputer.com/feed/",
+    category: "Malware",
+    enabled: true,
+  },
+  {
+    id: "krebs-on-security",
+    name: "Krebs on Security",
+    url: "https://krebsonsecurity.com",
+    feedUrl: "https://krebsonsecurity.com/feed/",
+    category: "Threats",
+    enabled: true,
+  },
+  {
+    id: "dark-reading",
+    name: "Dark Reading",
+    url: "https://www.darkreading.com",
+    feedUrl: "https://www.darkreading.com/rss.xml",
+    category: "Threats",
+    enabled: true,
+  },
+  {
+    id: "security-week",
+    name: "SecurityWeek",
+    url: "https://www.securityweek.com",
+    feedUrl: "https://feeds.feedburner.com/securityweek",
+    category: "Vulnerabilities",
+    enabled: true,
+  },
+  {
+    id: "the-record",
+    name: "The Record",
+    url: "https://therecord.media",
+    feedUrl: "https://therecord.media/feed/",
+    category: "Policy",
+    enabled: true,
+  },
+  {
+    id: "schneier",
+    name: "Schneier on Security",
+    url: "https://www.schneier.com",
+    feedUrl: "https://www.schneier.com/feed/atom/",
+    category: "Research",
+    enabled: true,
+  },
+  {
+    id: "project-zero",
+    name: "Google Project Zero",
+    url: "https://googleprojectzero.blogspot.com",
+    feedUrl: "https://googleprojectzero.blogspot.com/feeds/posts/default",
+    category: "Research",
+    enabled: true,
+  },
+  {
+    id: "portswigger-research",
+    name: "PortSwigger Research",
+    url: "https://portswigger.net/research",
+    feedUrl: "https://portswigger.net/research/rss",
+    category: "AppSec",
+    enabled: true,
+  },
+  {
+    id: "cisa-advisories",
+    name: "CISA Advisories",
+    url: "https://www.cisa.gov/news-events/cybersecurity-advisories",
+    feedUrl: "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+    category: "Vulnerabilities",
+    enabled: true,
+  },
+];

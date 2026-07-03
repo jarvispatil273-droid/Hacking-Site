@@ -1,0 +1,88 @@
+[
+  {
+    "id": "CVE-2021-44228",
+    "description": "Apache Log4j2 JNDI features used in configuration, log messages, and parameters do not protect against attacker-controlled LDAP and other JNDI related endpoints, allowing remote code execution (\"Log4Shell\").",
+    "cvssScore": 10.0,
+    "severity": "CRITICAL",
+    "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+    "published": "2021-12-10T10:15:00.000Z",
+    "lastModified": "2023-11-07T03:39:00.000Z",
+    "cwe": ["CWE-502", "CWE-917"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228", "source": "NVD" },
+      { "url": "https://logging.apache.org/log4j/2.x/security.html", "source": "Vendor" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  },
+  {
+    "id": "CVE-2014-0160",
+    "description": "The TLS and DTLS implementations in OpenSSL do not properly handle Heartbeat Extension packets, allowing remote attackers to read sensitive memory (\"Heartbleed\").",
+    "cvssScore": 7.5,
+    "severity": "HIGH",
+    "cvssVector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+    "published": "2014-04-07T22:55:00.000Z",
+    "lastModified": "2023-11-07T02:18:00.000Z",
+    "cwe": ["CWE-125"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-0160", "source": "NVD" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  },
+  {
+    "id": "CVE-2017-0144",
+    "description": "The SMBv1 server in multiple Microsoft Windows versions allows remote attackers to execute arbitrary code via crafted packets (\"EternalBlue\").",
+    "cvssScore": 8.1,
+    "severity": "HIGH",
+    "cvssVector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+    "published": "2017-03-16T21:59:00.000Z",
+    "lastModified": "2019-10-03T00:03:00.000Z",
+    "cwe": ["CWE-20"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-0144", "source": "NVD" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  },
+  {
+    "id": "CVE-2019-0708",
+    "description": "A remote code execution vulnerability in Remote Desktop Services when an unauthenticated attacker connects and sends crafted requests (\"BlueKeep\").",
+    "cvssScore": 9.8,
+    "severity": "CRITICAL",
+    "cvssVector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+    "published": "2019-05-16T19:29:00.000Z",
+    "lastModified": "2020-10-15T13:23:00.000Z",
+    "cwe": ["CWE-416"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-0708", "source": "NVD" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  },
+  {
+    "id": "CVE-2021-34527",
+    "description": "Windows Print Spooler allows remote code execution when it improperly performs privileged file operations (\"PrintNightmare\").",
+    "cvssScore": 8.8,
+    "severity": "HIGH",
+    "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+    "published": "2021-07-02T17:15:00.000Z",
+    "lastModified": "2023-12-22T18:47:00.000Z",
+    "cwe": ["CWE-269"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-34527", "source": "NVD" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  },
+  {
+    "id": "CVE-2022-22965",
+    "description": "A Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution via data binding (\"Spring4Shell\").",
+    "cvssScore": 9.8,
+    "severity": "CRITICAL",
+    "cvssVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+    "published": "2022-04-01T23:15:00.000Z",
+    "lastModified": "2023-11-07T03:44:00.000Z",
+    "cwe": ["CWE-94"],
+    "references": [
+      { "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22965", "source": "NVD" },
+      { "url": "https://spring.io/security/cve-2022-22965", "source": "Vendor" }
+    ],
+    "cachedAt": "2026-07-02T08:00:00.000Z"
+  }
+]
